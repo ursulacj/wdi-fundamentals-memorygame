@@ -1,23 +1,30 @@
 var cards = ["queen", "queen", "king", "king"];
-var cardsInPlay = []; 
-var cardOne = cards[3];
-cardsInPlay.push(cardOne);
-console.log("User flipped " + cardOne);
-var cardTwo = cards[2];
-cardsInPlay.push(cardTwo);
-console.log("User flipped " + cardTwo);
+var cardsInPlay = [];
 
-if(cardsInPlay.length === 2 && cardsInPlay[0] === cardsInPlay[1]){
-// if there are two cardsInPlay and they're the same 
-alert("You found a match!");
-// say "match"
+var checkForMatch = function(){
+	if (cardsInPlay[0] === cardsInPlay[1]) {
+		alert("You found a match!");
+	}
+	else {
+		alert("Sorry, try again.");
+	}
+};
+
+var flipCard = function(cardId) {
+if(cardsInPlay.length === 1) {
+	checkForMatch();
+console.log("User flipped " + cards[cardId]); 
+cardsInPlay.push(cards[cardId]);
 }
-else {
-	alert("Sorry, try again.");
-// else say "pick again"
-// and reset deck	
-}
+else 
+	console.log("User flipped " + cards[cardId]);
+	cardsInPlay.push(cards[cardId]);
+};
 
-
+flipCard(2);
+console.log(cardsInPlay.length);
+flipCard(1);
+/* based on your tests, you'll probably have to change the 
+length to 1 so it shows that you just flipped the second*/
 
 
